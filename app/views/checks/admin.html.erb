@@ -2,21 +2,21 @@
   <div class="col-md-8">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Administration</h3>
+        <h3 class="card-title">관리</h3>
         <div class="card-options">
         </div>
       </div>
       <div class="card-body">
       	<div id="notice"><%= notice %></div>
         <h4>
-          Recreate all scheduled background jobs of active checks
+          활성화된 체크의 모든 예약된 백그라운드 작업을 다시 만듭니다.
         </h4>
-        <p>This is useful after a (re)start.</p>
+        <p>이는 (재)시작 후에 유용합니다.</p>
         <p>
-          <%= link_to '<i class="fe fe-refresh-cw"></i> Recreate'.html_safe, jobs_recreate_checks_path, class: 'btn btn-info' %>
+          <%= link_to '<i class="fe fe-refresh-cw"></i> 다시생성'.html_safe, jobs_recreate_checks_path, class: 'btn btn-info' %>
         </p>
         <p>
-          It can be also accomplished using the REST API endpoint:
+          REST API 엔드포인트를 사용하여 이를 실행할 수 있음:
         </p>
         <p>
           <code>
@@ -27,30 +27,30 @@
     </div>
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Debugging information</h3>
+        <h3 class="card-title">디버깅 정보</h3>
         <div class="card-options">
         </div>
       </div>
       <div class="card-body">
         <p>
           <span class="badge badge-dark %>">
-          Configuration
+          구성 요소
           </span>
         </p>
-        <p><strong>Time zone:</strong> <code><%= ENV.fetch('TIME_ZONE', 'not configured') %></code></p>
-        <p><strong>Notifications SMTP:</strong> <code><%= ENV.fetch('SMTP_ADDRESS', 'not configured') %></code></p>
-        <p><strong>Notifications Webhooks:</strong> <code><%= Ciao::Parsers::WebhookParser.names %></code>
-        <p><strong>Notifications count:</strong> <code><%= NOTIFICATIONS.length %></code></p>
+        <p><strong>시간대:</strong> <code><%= ENV.fetch('TIME_ZONE', 'not configured') %></code></p>
+        <p><strong>알림 SMTP:</strong> <code><%= ENV.fetch('SMTP_ADDRESS', 'not configured') %></code></p>
+        <p><strong>알림 웹훅:</strong> <code><%= Ciao::Parsers::WebhookParser.names %></code>
+        <p><strong>알림 수:</strong> <code><%= NOTIFICATIONS.length %></code></p>
         </p>
-        <p><strong>HTTP Basic auth username:</strong> <code><%= ENV.fetch('BASIC_AUTH_USERNAME', 'not configured') %></code></p>
-        <p><strong>Prometheus enabled:</strong> <code><%= ENV.fetch('PROMETHEUS_ENABLED', 'not configured') %></code></p>
-        <p><strong>Prometheus HTTP Basic auth username:</strong> <code><%= ENV.fetch('PROMETHEUS_BASIC_AUTH_USERNAME', 'not configured') %></code></p>
+        <p><strong>HTTP 기본 인증 사용자 이름:</strong> <code><%= ENV.fetch('BASIC_AUTH_USERNAME', 'not configured') %></code></p>
+        <p><strong>프로메테우스 활성화:</strong> <code><%= ENV.fetch('PROMETHEUS_ENABLED', 'not configured') %></code></p>
+        <p><strong>Prometheus HTTP 기본 인증 사용자 이름:</strong> <code><%= ENV.fetch('PROMETHEUS_BASIC_AUTH_USERNAME', 'not configured') %></code></p>
         <p>
           <span class="badge badge-dark %>">
-          Database
+          데이터 베이스
           </span>
         </p>
-        <p><strong>Dabase conn. pool stat.:</strong> <code><%= ActiveRecord::Base.connection_pool.stat %></code></p>
+        <p><strong>데이터베이스 연결. 풀 통계:</strong> <code><%= ActiveRecord::Base.connection_pool.stat %></code></p>
       </div>
     </div>
   </div>

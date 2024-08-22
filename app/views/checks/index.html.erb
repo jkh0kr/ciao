@@ -1,6 +1,6 @@
 <div class="card">
 <div class="card-header">
-  <h3 class="card-title">Checks</h3>
+  <h3 class="card-title">체크</h3>
   <div class="card-options">
     <span id="notice"><%= notice %></span>
     <%= link_to 'JSON',
@@ -11,11 +11,11 @@
 <table class="table card-table table-striped table-vcenter">
   <thead>
     <tr>
-      <th colspan=2>Active</th>
-      <th>Name</th>
+      <th colspan=2>활성화</th>
+      <th>이름</th>
       <th>Cron</th>
       <th>Url</th>
-      <th>Status</th>
+      <th>상태</th>
       <th>TLS</th>
       <th></th>
     </tr>
@@ -41,7 +41,7 @@
             </span>
           </div>
           <div class="small text-muted">
-            <%= "Next: " + check.next_contact_at.to_s if check.next_contact_at %>
+            <%= "다음: " + check.next_contact_at.to_s if check.next_contact_at %>
           </div>
         </td>
         <td>
@@ -61,16 +61,16 @@
         <td>
           <div class="small <%= class_for_tls_expires_in_days(check.tls_expires_in_days) %>">
             <% if !check.active %>
-              Check not active
+              체크 안됨
             <% else %>
               <% if URI.parse(check.url).scheme == 'https' %>
                 <% if check.tls_expires_at? %>
-                  Expires in <%= check.tls_expires_in_days %> days
+                  <%= check.tls_expires_in_days %>일 후 만료됨
                 <% else %>
-                  Waiting for TLS check
+                  TLS 검사 대기 중
                 <% end %>
               <% else %>
-                No TLS certificate
+                TLS 인증서 없음
               <% end %>
             <% end %>
           </div>

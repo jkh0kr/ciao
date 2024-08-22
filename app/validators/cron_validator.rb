@@ -14,7 +14,7 @@ class CronValidator < ActiveModel::EachValidator
 
     record.errors.add(
       attribute,
-      "is not a valid cron. Check your cron schedule expression here: https://crontab.guru"
+      "유효한 cron이 아닙니다. 여기에서 cron 일정 표현식을 확인하세요: https://crontab.guru"
     )
   end
 end

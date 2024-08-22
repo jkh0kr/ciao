@@ -15,7 +15,7 @@
         </p>
 
         <p>
-          <strong>Active:</strong>
+          <strong>활성화:</strong>
           <span class="<%= class_for_active(@check.active) %>"><%= @check.active %></span>
         </p>
 
@@ -31,33 +31,33 @@
         </p>
 
         <p>
-          <strong>Status:</strong>
+          <strong>상태:</strong>
           <span class="text-<%= class_for_status(@check.status) %>">
             <strong><%= @check.status %></strong>
           </span>
         </p>
 
         <p>
-          <strong>Next contact:</strong>
+          <strong>다음 체크 시간:</strong>
           <span><%= @check.next_contact_at %></span>
         </p>
 
         <p>
-          <strong>Last contact:</strong>
+          <strong>마지막 체크 시간:</strong>
           <span><%= @check.last_contact_at %></span>
         </p>
 
         <% if URI.parse(@check.url).scheme == 'https' && @check.tls_expires_at? %>
         <p>
-          <strong>TLS expires at:</strong>
+          <strong>TLS 만료 시간:</strong>
           <span class="<%= class_for_tls_expires_in_days(@check.tls_expires_in_days) %>">
-            <%= @check.tls_expires_at %> (in <%= @check.tls_expires_in_days %> days)
+            <%= @check.tls_expires_at %> (<%= @check.tls_expires_in_days %> 일 후에 만료됨)
           </span>
         </p>
         <% end %>
 
         <p>
-          <strong>Status changes: <%= @check.status_changes.count %></strong>
+          <strong>상태 변경 횟수: <%= @check.status_changes.count %></strong>
           <ul>
           <% @check.status_changes.order(created_at: :desc).each do |status_change| %>
             <li><%= status_change.created_at %>
@@ -72,12 +72,12 @@
         </p>
 
         <p>
-          <strong>Debug:</strong> <%= link_to @check.job, check_job_path(@check) %>
+          <strong>디버깅:</strong> <%= link_to @check.job, check_job_path(@check) %>
         </p>
 
         <p>
           <%= button_to @check, class: "btn btn-outline-danger btn-sm", method: :delete do %>
-            <i class="fe fe-trash"></i> Delete
+            <i class="fe fe-trash"></i> 삭제
           <% end %>
         </p>
       </div>

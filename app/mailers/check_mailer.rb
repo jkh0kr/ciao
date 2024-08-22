@@ -14,7 +14,7 @@ class CheckMailer < ApplicationMailer
     @url = params[:url]
     @status_before = params[:status_before]
     @status_after = params[:status_after]
-    mail(subject: "[ciao] #{@name}: Status changed (#{@status_after})")
+    mail(subject: "[ciao] #{@name}: 상태가 변경되었습니다. (#{@status_after})")
   end
 
   # Sends mail to inform the receiver about a
@@ -28,6 +28,6 @@ class CheckMailer < ApplicationMailer
     @url = params[:url]
     @tls_expires_at = params[:tls_expires_at]
     @tls_expires_in_days = params[:tls_expires_in_days]
-    mail(subject: "[ciao] #{@name}: TLS certificate expires in #{@tls_expires_in_days} days")
+    mail(subject: "[ciao] #{@name}: TLS 인증서가 #{@tls_expires_in_days}일 후에 만료됩니다.")
   end
 end

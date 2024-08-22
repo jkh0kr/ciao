@@ -12,6 +12,6 @@ class HttpUrlValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.present? && self.class.compliant?(value)
 
-    record.errors.add(attribute, "is not a valid HTTP URL")
+    record.errors.add(attribute, "유효한 HTTP URL이 아닙니다.")
   end
 end

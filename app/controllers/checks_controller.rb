@@ -31,7 +31,7 @@ class ChecksController < ApplicationController
     respond_to do |format|
       if @check.save
         format.html do
-          redirect_to @check, notice: "Check was successfully created."
+          redirect_to @check, notice: "체크가 성공적으로 생성되었습니다."
         end
         format.json { render :show, status: :created, location: @check }
       else
@@ -49,7 +49,7 @@ class ChecksController < ApplicationController
     respond_to do |format|
       if @check.update(check_params)
         format.html do
-          redirect_to @check, notice: "Check was successfully updated."
+          redirect_to @check, notice: "체크가 성공적으로 업데이트되었습니다."
         end
         format.json { render :show, status: :ok, location: @check }
       else
@@ -67,7 +67,7 @@ class ChecksController < ApplicationController
     @check.destroy
     respond_to do |format|
       format.html do
-        redirect_to checks_url, notice: "Check was successfully destroyed."
+        redirect_to checks_url, notice: "체크가 성공적으로 삭제되었습니다."
       end
       format.json { head :no_content }
     end
@@ -90,7 +90,7 @@ class ChecksController < ApplicationController
         format.json { render :job, status: :ok }
       else
         format.html { render :job, status: 404 }
-        format.json { render json: "Job not found", status: 404 }
+        format.json { render json: "작업을 찾을 수 없습니다.", status: 404 }
       end
     end
   end
@@ -106,10 +106,10 @@ class ChecksController < ApplicationController
     respond_to do |format|
       format.html do
         redirect_to checks_url,
-          notice: "Check jobs were successfully recreated."
+          notice: "작업이 성공적으로 다시 생성되었는지 확인하세요."
       end
       format.json do
-        render json: "Check jobs were successfully recreated.", status: 200
+        render json: "작업이 성공적으로 다시 생성되었는지 확인하세요.", status: 200
       end
     end
   end
