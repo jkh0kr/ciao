@@ -24,14 +24,14 @@ jobs:
       - name: build the image
         run: |
           docker buildx build \
-            --tag brotandgames/ciao:$(cat ./public/version) \
+            --tag jkhkr/ciao:$(cat ./public/version) \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
 
       - name: push the image
         if: "!contains(github.ref, '-rc')"
         run: |
           docker buildx build --push \
-            --tag brotandgames/ciao:$(cat ./public/version) \
-            --tag brotandgames/ciao:latest \
+            --tag jkhkr/ciao:$(cat ./public/version) \
+            --tag jkhkr/ciao:latest \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
 
