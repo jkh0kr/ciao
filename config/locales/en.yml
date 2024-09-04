@@ -1,58 +1,33 @@
-# Korean (한글) translations for Ruby on Rails 
-# by John Hwang (jhwang@tavon.org)
-# http://github.com/tavon
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  date:
-    formats:
-      default: "%Y/%m/%d"
-      short: "%m/%d"
-      long: "%Y년 %m월 %d일 (%a)"
-      
-    day_names: [일요일, 월요일, 화요일, 수요일, 목요일, 금요일, 토요일]
-    abbr_day_names: [일, 월, 화, 수, 목, 금, 토]
-      
-    month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
-    abbr_month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
-      
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
-  datetime:
-    distance_in_words:
-      half_a_minute: "30초"
-      less_than_x_seconds:
-        one:   "일초 이하"
-        other: "{{count}}초 이하"
-      x_seconds:
-        one:   "일초"
-        other: "{{count}}초"
-      less_than_x_minutes:
-        one:   "일분 이하"
-        other: "{{count}}분 이하"
-      x_minutes:
-        one:   "일분"
-        other: "{{count}}분"
-      about_x_hours:
-        one:   "약 한시간"
-        other: "약 {{count}}시간"
-      x_days:
-        one:   "하루"
-        other: "{{count}}일"
-      about_x_months:
-        one:   "약 한달"
-        other: "약 {{count}}달"
-      x_months:
-        one:   "한달"
-        other: "{{count}}달"
-      about_x_years:
-        one:   "약 일년"
-        other: "약 {{count}}년"
-      over_x_years:
-        one:   "일년 이상"
-        other: "{{count}}년 이상"
-    prompts:
-      year:   "년"
-      month:  "월"
-      day:    "일"
-      hour:   "시"
-      minute: "분"
-      second: "초"
+  hello: "Hello world"
