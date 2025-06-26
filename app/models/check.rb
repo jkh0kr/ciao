@@ -74,14 +74,22 @@ class Check < ApplicationRecord
             status_changes.create(status: status)
           end
           Rails.logger.info "ciao-scheduler Check '#{name}': Status changed from '#{status_before}' to '#{status_after}'"
-          NOTIFICATIONS.each do |notification|
-            notification.notify(
-              name: name,
-              status_before: status_before,
-              status_after: status_after,
-              url: url,
-              check_url: Rails.application.routes.url_helpers.check_path(self)
-            )
+          # 알림 제외 조건:
+          # 1. 200에서 301/302로 변경된 경우
+          # 2. 301/302에서 200으로 변경된 경우
+          if (status_before == "200" && %w[301 302].include?(status_after)) ||
+             (%w[301 302].include?(status_before) && status_after == "200")
+            Rails.logger.info "ciao-scheduler Skipped notification for status change '#{status_before}' -> '#{status_after}'"
+          else
+            NOTIFICATIONS.each do |notification|
+              notification.notify(
+                name: name,
+                status_before: status_before,
+                status_after: status_after,
+                url: url,
+                check_url: Rails.application.routes.url_helpers.check_path(self)
+              )
+            end
           end
         end
       end
